@@ -11,7 +11,11 @@ class Game:
         pygame.init()
         pygame.display.set_caption("Ninja End - SJ Joseph")
 
-        self.screen = pygame.display.set_mode((640, 480))
+        self.width = 1080
+        self.height = 720
+
+        self.screen = pygame.display.set_mode((self.width, self.height))
+        self.display = pygame.Surface((self.width/2, self.height/2))
         self.clock = pygame.time.Clock()
 
         self.movement = [False, False]
@@ -24,10 +28,10 @@ class Game:
     def run(self):
         while True:
                     
-            self.screen.fill((15, 200, 255))
+            self.display.fill((15, 200, 255))
 
             self.player.update((self.movement[1] - self.movement[0], 0))
-            self.player.render(self.screen)
+            self.player.render(self.display)
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -44,7 +48,7 @@ class Game:
                     if (event.key == pygame.K_RIGHT) or (event.key == pygame.K_l):
                         self.movement[1] = False
                                                          
-                    
+            self.screen.blit(pygame.transform.scale(self.display, self.screen.get_size()), (0, 0))
             pygame.display.update()
             self.clock.tick(60)
 
