@@ -64,6 +64,11 @@ class Editor:
                     "variant": self.tile_variant,
                     "pos": tile_pos
                 }
+            if self.right_clicking:
+                tile_loc = str(tile_pos[0]) + ";" + str(tile_pos[1])
+                if tile_loc in self.tilemap.tile_map:
+                    del self.tilemap.tile_map[tile_loc]
+                    
 
             self.display.blit(current_tile_img, 
                               ((mpos[0] // self.tilemap.tile_size) * self.tilemap.tile_size - self.scroll[0] % self.tilemap.tile_size,
