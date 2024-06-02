@@ -33,7 +33,7 @@ class Game:
             "clouds": load_images("clouds")
         }
 
-        self.clouds = Clouds(self.assets["clouds"], count=20, )
+        self.clouds = Clouds(self.assets["clouds"], count=12, )
         
         self.player = PhysicsEntity(self, 'player', (50, 50), (8, 15))
 
