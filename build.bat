@@ -1,3 +1,3 @@
 @echo off
 
-python game.py
+python editor.py
