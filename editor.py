@@ -138,6 +138,8 @@ class Editor:
                         self.shift = True
                     if (event.key == pygame.K_g):
                         self.ongrid = not self.ongrid
+                    if (event.key == pygame.K_s):
+                        self.tilemap.save('map.json')
 
                 if event.type == pygame.KEYUP:
                     if (event.key == pygame.K_LEFT) or (event.key == pygame.K_h):
